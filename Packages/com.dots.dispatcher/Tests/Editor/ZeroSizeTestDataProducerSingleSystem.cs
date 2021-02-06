@@ -1,7 +1,7 @@
-﻿using Dispatcher.Runtime;
+﻿using DOTS.Dispatcher.Runtime;
 using Unity.Entities;
 
-namespace Dispatcher.Tests.Editor
+namespace DOTS.Dispatcher.Tests.Editor
 {
     [DisableAutoCreation]
     internal class ZeroSizeTestDataProducerSingleSystem : SystemBase

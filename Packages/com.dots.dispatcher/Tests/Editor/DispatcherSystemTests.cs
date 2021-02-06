@@ -1,12 +1,12 @@
 using System.Diagnostics;
 using System.Threading;
-using DOTS.Tests.Editor;
+using DOTS.Extensions.Tests.Editor;
 using NUnit.Framework;
 using Unity.Collections;
 using Unity.Entities;
 using Debug = UnityEngine.Debug;
 
-namespace Dispatcher.Tests.Editor
+namespace DOTS.Dispatcher.Tests.Editor
 {
     public class DispatcherSystemTests : ECSTestFixture
     {

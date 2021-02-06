@@ -1,13 +1,13 @@
-﻿using Dispatcher.Runtime;
+﻿using DOTS.Dispatcher.Runtime;
 using Unity.Burst;
 using Unity.Collections;
 using Unity.Entities;
 using Unity.Jobs;
 
-namespace Dispatcher.Tests.Editor
+namespace DOTS.Dispatcher.Tests.Editor
 {
     [DisableAutoCreation]
-    internal class ValueTestDataProducerParallelSystem : SystemBase
+    internal class ZeroSizeTestDataProducerParallelSystem : SystemBase
     {
         DispatcherSystem _dispatcherSystem;
         public int Count;
@@ -26,25 +26,26 @@ namespace Dispatcher.Tests.Editor
                 return;
             }
 
-            var dispatcherQueue = _dispatcherSystem.CreateDispatcherQueue<ValueTestData>();
+            var dispatchQueue = _dispatcherSystem.CreateDispatcherQueue<ZeroSizeTestData>();
+            var count = Count;
 
             Dependency = new ProducerJob
                 {
-                    Queue = dispatcherQueue.AsParallelWriter()
+                    Queue = dispatchQueue.AsParallelWriter()
                 }
-                .Schedule(Count, 64, Dependency);
+                .Schedule(count, 64, Dependency);
 
             _dispatcherSystem.AddJobHandleForProducer(Dependency);
         }
 
         [BurstCompile]
-        struct ProducerJob : IJobParallelFor
+        private struct ProducerJob : IJobParallelFor
         {
-            public NativeQueue<ValueTestData>.ParallelWriter Queue;
+            public NativeQueue<ZeroSizeTestData>.ParallelWriter Queue;
 
             public void Execute(int index)
             {
-                Queue.Enqueue(new ValueTestData(index));
+                Queue.Enqueue(default);
             }
         }
     }

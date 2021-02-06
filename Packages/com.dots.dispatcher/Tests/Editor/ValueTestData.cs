@@ -1,7 +1,7 @@
 ﻿using System;
 using Unity.Entities;
 
-namespace Dispatcher.Tests.Editor
+namespace DOTS.Dispatcher.Tests.Editor
 {
     internal readonly struct ValueTestData : IComponentData, IEquatable<ValueTestData>
     {

@@ -1,6 +1,6 @@
 ﻿using Unity.Entities;
 
-namespace Dispatcher.Tests.Editor
+namespace DOTS.Dispatcher.Tests.Editor
 {
     internal readonly struct ZeroSizeTestData : IComponentData
     {

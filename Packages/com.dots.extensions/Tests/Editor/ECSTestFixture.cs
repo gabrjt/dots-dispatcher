@@ -3,7 +3,7 @@ using Unity.Entities;
 using Unity.Jobs.LowLevel.Unsafe;
 using UnityEngine.LowLevel;
 
-namespace DOTS.Tests.Editor
+namespace DOTS.Extensions.Tests.Editor
 {
     [TestFixture]
     public abstract class ECSTestFixture

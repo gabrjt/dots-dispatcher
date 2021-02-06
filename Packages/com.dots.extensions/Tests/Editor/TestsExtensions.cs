@@ -1,6 +1,6 @@
 using System;
 
-namespace DOTS.Tests.Editor
+namespace DOTS.Extensions.Tests.Editor
 {
     public static class TestsExtensions
     {

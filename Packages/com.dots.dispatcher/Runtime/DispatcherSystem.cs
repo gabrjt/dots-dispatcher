@@ -6,7 +6,7 @@ using Unity.Collections.LowLevel.Unsafe;
 using Unity.Entities;
 using Unity.Jobs;
 
-namespace Dispatcher.Runtime
+namespace DOTS.Dispatcher.Runtime
 {
     [AlwaysUpdateSystem]
     public abstract class DispatcherSystem : SystemBase

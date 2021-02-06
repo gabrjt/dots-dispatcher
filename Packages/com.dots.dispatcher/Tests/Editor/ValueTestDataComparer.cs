@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Dispatcher.Tests.Editor
+namespace DOTS.Dispatcher.Tests.Editor
 {
     internal readonly struct ValueTestDataComparer : IComparer<ValueTestData>
     {

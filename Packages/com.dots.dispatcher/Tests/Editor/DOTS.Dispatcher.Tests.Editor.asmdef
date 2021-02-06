@@ -1,12 +1,18 @@
 {
-    "name": "DOTS.Tests.Editor",
+    "name": "DOTS.Dispatcher.Tests.Editor",
     "rootNamespace": "",
     "references": [
         "UnityEngine.TestRunner",
         "UnityEditor.TestRunner",
-        "Unity.Entities"
+        "Unity.Burst",
+        "Unity.Collections",
+        "Unity.Entities",
+        "DOTS.Dispatcher.Runtime",
+        "DOTS.Extensions.Tests.Editor"
     ],
-    "includePlatforms": [],
+    "includePlatforms": [
+        "Editor"
+    ],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
     "overrideReferences": true,
