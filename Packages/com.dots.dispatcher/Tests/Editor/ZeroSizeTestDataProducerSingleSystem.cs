@@ -24,7 +24,7 @@ namespace DOTS.Dispatcher.Tests.Editor
                 return;
             }
 
-            var dispatchQueue = _dispatcherSystem.CreateDispatcherQueue<ZeroSizeTestData>();
+            var dispatcherQueue = _dispatcherSystem.CreateDispatcherQueue<ZeroSizeTestData>();
             var count = Count;
 
             Job
@@ -33,7 +33,7 @@ namespace DOTS.Dispatcher.Tests.Editor
                     {
                         for (var index = 0; index < count; index++)
                         {
-                            dispatchQueue.Enqueue(default);
+                            dispatcherQueue.Enqueue(default);
                         }
                     }
                 )
