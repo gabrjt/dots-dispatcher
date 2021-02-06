@@ -26,12 +26,12 @@ namespace DOTS.Dispatcher.Tests.Editor
                 return;
             }
 
-            var dispatchQueue = _dispatcherSystem.CreateDispatcherQueue<ZeroSizeTestData>();
+            var dispatcherQueue = _dispatcherSystem.CreateDispatcherQueue<ZeroSizeTestData>();
             var count = Count;
 
             Dependency = new ProducerJob
                 {
-                    Queue = dispatchQueue.AsParallelWriter()
+                    Queue = dispatcherQueue.AsParallelWriter()
                 }
                 .Schedule(count, 64, Dependency);
 
