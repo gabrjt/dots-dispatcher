@@ -14,6 +14,32 @@ namespace DOTS.Dispatcher.Runtime
         readonly Dictionary<Type, IDispatcherContainer> _dictionary =
             new Dictionary<Type, IDispatcherContainer>();
 
+        /// <summary>
+        /// Creates a NativeQueue which can be used to enqueue Event Data to be created when the DispatcherSystem runs.
+        /// </summary>
+        /// <typeparam name="T">struct, IComponentData</typeparam>
+        /// <returns>NativeQueue</returns>
+        public NativeQueue<T> CreateDispatcherQueue<T>() where T : struct, IComponentData
+        {
+            if (!_dictionary.TryGetValue(typeof(T), out var dispatcherContainer))
+            {
+                _dictionary.Add(typeof(T), dispatcherContainer = new DispatcherContainer<T>(this));
+            }
+
+            return ((DispatcherContainer<T>) dispatcherContainer).CreateDispatcherQueue();
+        }
+
+        /// <summary>
+        /// Must be used if the DispatcherQueue is enqueueing data in Jobs, i.e. asynchronously.
+        /// Guarantees that the DispatcherSystem will only run after its dependencies,
+        /// which are determined by this function call.
+        /// </summary>
+        /// <param name="dependency">The event producer system dependency</param>
+        public void AddJobHandleForProducer(JobHandle dependency)
+        {
+            Dependency = JobHandle.CombineDependencies(Dependency, dependency);
+        }
+
         protected override void OnDestroy()
         {
             base.OnDestroy();
@@ -39,20 +65,6 @@ namespace DOTS.Dispatcher.Runtime
             }
         }
 
-        public NativeQueue<T> CreateDispatcherQueue<T>() where T : struct, IComponentData
-        {
-            if (!_dictionary.TryGetValue(typeof(T), out var dispatcherContainer))
-            {
-                _dictionary.Add(typeof(T), dispatcherContainer = new DispatcherContainer<T>(this));
-            }
-
-            return ((DispatcherContainer<T>) dispatcherContainer).CreateDispatcherQueue();
-        }
-
-        public void AddJobHandleForProducer(JobHandle dependency)
-        {
-            Dependency = JobHandle.CombineDependencies(Dependency, dependency);
-        }
 
         interface IDispatcherContainer : IDisposable
         {
