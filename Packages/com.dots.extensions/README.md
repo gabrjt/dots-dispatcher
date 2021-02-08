@@ -8,4 +8,4 @@ It currently provides a `ECSTestFixture` class that may be used for writing test
 
 Inherit `ECSTestFixture` in your Unity's DOTS ECS tests.
 
-It provides a `Setup` and `Teardown` methods.
+It provides a `Setup` and `TearDown` methods.
