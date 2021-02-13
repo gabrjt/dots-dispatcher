@@ -1,5 +1,23 @@
 {
   "dependencies": {
+    "com.dots.dispatcher": {
+      "version": "1.0.0",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "com.dots.extensions": "1.0.0"
+      },
+      "url": "https://package.openupm.com"
+    },
+    "com.dots.extensions": {
+      "version": "1.0.0",
+      "depth": 1,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.entities": "0.17.0-preview.41"
+      },
+      "url": "https://package.openupm.com"
+    },
     "com.unity.burst": {
       "version": "1.4.4",
       "depth": 0,

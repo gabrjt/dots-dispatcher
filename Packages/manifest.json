@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "com.dots.dispatcher": "1.0.0",
     "com.unity.burst": "1.4.4",
     "com.unity.collab-proxy": "1.3.9",
     "com.unity.collections": "0.15.0-preview.21",
@@ -46,5 +47,16 @@
     "com.unity.modules.vr": "1.0.0",
     "com.unity.modules.wind": "1.0.0",
     "com.unity.modules.xr": "1.0.0"
-  }
+  },
+  "scopedRegistries": [
+    {
+      "name": "package.openupm.com",
+      "url": "https://package.openupm.com",
+      "scopes": [
+        "com.dots.dispatcher",
+        "com.dots.extensions",
+        "com.openupm"
+      ]
+    }
+  ]
 }
